@@ -39,3 +39,7 @@ flask run
 ```
 
 and the app will be running on localhost:5000.
+
+# Contributors
+
+[Max Bridgland](https://github.com/M4cs) - Creator and Maintainer
