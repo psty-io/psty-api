@@ -88,6 +88,7 @@ env/
 venv/
 ENV/
 env.bak/
+.flask/
 venv.bak/
 
 # Spyder project settings
@@ -102,3 +103,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+/app/templates/pastes/*.html
