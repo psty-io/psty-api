@@ -15,7 +15,7 @@ psty runs on Flask which can run on a number of platforms. I use UWSGI and Nginx
 
 If you want to have a paste-service linked to your website that is pretty much fully customizable you can use this. This is a very easy way to share source code quickly and easily.
 
-# Getting Started Running:
+# Getting Started:
 
 To start you will need somewhere to host the Flask app. This platform needs to be able to run Python 3.5.2+ and some sort of way to route the connection through a proxy pass or alt. First clone this github repository:
 
