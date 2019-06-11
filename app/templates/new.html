@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html style="background-color: black;">
+<head>
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1138462810286043136/poWUUOQc_400x400.jpg">
+    <link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/bulma.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/bfef34323a.js"></script>
+    <title>Psty</title>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@psty_io">
+    <meta name="twitter:creator" content="@MaxBridgland">
+    <meta name="twitter:title" content="Psty.io - Easily Paste and Share Code or Plaintext">
+    <meta name="twitter:description" content="Psty.io Is a free, ad-free, and open source service that allows you to easily share and highlight code, text, or anything you can put in a textbox! Supports 155 languages.">
+    <meta name="twitter:image" content="https://psty.io/assets/images/nav-logo.png">
+    <meta name="Description" content="Easily paste and share source code or plaintext with support for up to 154 languages!">
+    <meta name="Keywords" content="paste, site, pasting, pastebin, ghostbin, upload, source, code, gist, easy">
+</head>
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://psty.io/">
+        <img src="assets/images/nav-logo.png" height="28">
+      </a>
+  
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/new">
+            <span style="font-size: 28px; color: Dodgerblue;">
+                <i class="fas fa-paste sz-9"></i> 
+            </span>
+        </a>
+  
+        <a class="navbar-item" href="https://twitter.com/psty_io">
+            <span style="font-size: 28px; color: Dodgerblue;">
+                <i class="fab fa-twitter-square sz-9"></i> 
+            </span>
+          
+        </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<body>
+    <br>
+    <form action="https://psty.io/upload" method='POST'>
+        <div class="columns">
+            <div class="column is-three-fifths" style="margin-left: 1%">
+                <div class="field">
+                    <label class="label" style="color: white">Title (Max Len. 32)</label>
+                    <input class="input" type="text" name="title" id="input" style="height: 75%" maxlength="32" placeholder="Example Title" required></input>
+                </div>
+            </div>
+            <div class="column is-one-fifth">
+                <label class="label" style="color: white">Languages</label>
+                <div class="select">
+                    <select name="lang"><option value="Plaintext">Plaintext</option><option value="Guess">Guess (Beta Probably Won't Work)</option>{{options|safe}}</select>
+                </div>
+            </div>
+            <div class="column">
+                <label class="label" style="color: white">Submit</label>
+                <button class="button is-dark" type="submit" style="width: 90%; margin-right: 5%" required>Submit</a>
+            </div>
+        </div>
+        <textarea class="textarea" placeholder="# Enter Your Code or Paste Here and Click Submit" rows="100" name="code" style="background-color: #363636; color: white;"></textarea>
+    </form>
+</body>
+<script>
+var textareas = document.getElementsByTagName('textarea');
+var count = textareas.length;
+for(var i=0;i<count;i++){
+    textareas[i].onkeydown = function(e){
+        if(e.keyCode==9 || e.which==9){
+            e.preventDefault();
+            var s = this.selectionStart;
+            this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+            this.selectionEnd = s+1; 
+        }
+    }
+}
+</script>
+</html>
