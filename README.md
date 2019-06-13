@@ -26,7 +26,6 @@ You can also hit the https://psty.io/api endpoint with a POST request to generat
 | :- | :- | :- |
 | code | string | no if file provided |
 | file | file object | no if code provided |
-| title | string | yes |
 | lang (matches dropdown on https://psty.io) | string | yes |
 
 **Endpoint:**
