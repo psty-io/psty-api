@@ -34,7 +34,7 @@ You can also hit the https://psty.io/api endpoint with a POST request to generat
 https://psty.io/api
 ```
 
-**Example Response:***
+**Example Response:**
 
 ```json
 {
