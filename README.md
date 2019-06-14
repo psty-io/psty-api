@@ -40,7 +40,7 @@ https://psty.io/api
 {
     "status": 200,
     "status_message": "Successfully created paste",
-    "paste_link": "https://psty.io/p?q=3f5f"
+    "paste_link": "https://psty.io/p?q=3f5f",
     "raw_link": "https://psty.io/r?q=3f5f
 }
 ```
