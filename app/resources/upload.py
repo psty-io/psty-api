@@ -35,8 +35,9 @@ class Upload(Resource):
                     html_file.close()
                 return redirect(app.home_url + '/p?q={}.html'.format(filename))
             if data['lang'] == "Plaintext":
-                with open('app/templates/plain.html', 'r') as html_file_1:
-                    new_html = html_file_1.read().replace('{{code}}', code)
+                with open('app/templates/index.html', 'r') as html_file_1:
+                    new_html = html_file.read().replace('class="language-{{language}}"', 'class="lang-%s"' % lang_short).replace("{{lang}}", language_proper)
+                    new_html = new_html.read().replace('{{code}}', code)
                     uid = str(uuid4()).split('-')[0]
                     filename = uid + '-' + title
                     with open('app/templates/pastes/{}.html'.format(filename), 'w') as out:

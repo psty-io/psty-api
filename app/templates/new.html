@@ -1,116 +1,60 @@
-<!DOCTYPE html>
-<html>
-  <!-- Lets Keep This Clean Yeah? Hey there if you're reading this :P-->
-  <head>
-    <title>psty.io - Free Paste Service</title>
-    <!-- Stylesheet/JS Shit -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/bfef34323a.js"></script>
-    <script src="assets/js/plugins/autoexpand.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <link href="/assets/css/material-kit.css" rel="stylesheet" />
-    <link rel="icon" href="https://pbs.twimg.com/profile_images/1138462810286043136/poWUUOQc_400x400.jpg">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Twitter Embed Card Stuffs -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@psty_io">
-    <meta name="twitter:creator" content="@MaxBridgland">
-    <meta name="twitter:title" content="Psty.io - Easily Paste and Share Code or Plaintext">
-    <meta name="twitter:description" content="Psty.io Is a free, ad-free, and open source service that allows you to easily share and highlight code, text, or anything you can put in a textbox! Supports 155 languages.">
-    <meta name="twitter:image" content="https://psty.io/assets/images/nav-logo.png">
-    <!-- General SEO and Embed Shit -->
-    <meta name="Description" content="Easily paste and share source code or plaintext with support for up to 154 languages!">
-    <meta name="Keywords" content="paste, service, pasting, share, source code, pastebin, ghostbin, hastebin, psty, psty.io, psty paste, paste source code, source code pasting, share source code, syntax highlighter, syntax highlighting">
-  </head>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="https://psty.io">
-        <div class="logo-image">
-          <img src="https://psty.io/assets/images/nav-logo.png" height="28px" style="padding-bottom: 5px;" class="image-fluid"></a>
-        </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#"><i class="fa fa-paste"></i>Paste</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/psty-io/psty-api#star-openapi-usage-star"><i class="fa fa-book"></i>Docs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/psty-io/psty-api"><i class="fa fa-star"></i>Source Code</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link">
-              Total Pastes: {{count}}
-            </span>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link">
-              Pastes will reset in {{remaining}}
-            </span>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="https://twitter.com/maxbridgland">
-                Made with <i class="fa fa-heart"></i> by Max
-              </a>
-            </li>
-        </ul>
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form action="https://psty.io/upload" method="POST">
+  <center>
+    <div class="row" style="max-width: 100%;">
+      <div class="col" style="margin-left: 7px;">
+        <label for="language">Source Languages:</label>
+        <select class="form-control selectpicker" data-style="btn btn-link" id="language" name="lang">
+          <option value="plaintext">Plaintext</option>
+          {{options | safe}}
+        </select>
+      </div>
+      <div class="col">
+        <label for="themes">Available Themes:</label>
+        <select class="form-control selectpicker" data-style="btn btn-link" id="themes" name="theme">
+          {{themes | safe}}
+        </select>
+      </div>
+      <div class="col" style="padding-top: 10px;">
+        <button type="submit" class="btn btn-primary">
+          Submit Your Paste Now <i class="fa fa-arrow-circle-right" id="submit"></i>
+        </button>
       </div>
     </div>
-  </nav>
-  <body>
-    <form action="https://psty.io/upload" method="POST">
-      <center>
-        <div class="row" style="max-width: 100%;">
-          <div class="col" style="margin-left: 7px;">
-            <label for="language">Source Languages:</label>
-            <select class="form-control selectpicker" data-style="btn btn-link" id="language" name="lang">
-                <option value="plaintext">Plaintext</option>
-                {{options | safe}}
-            </select>
-          </div>
-          <div class="col">
-            <label for="themes">Available Themes:</label>
-            <select class="form-control selectpicker" data-style="btn btn-link" id="themes" name="theme">
-                {{themes | safe}}
-            </select>
-          </div>
-          <div class="col" style="padding-top: 10px;">
-            <button type="submit" class="btn btn-primary">Submit Your Paste Now <i class="fa fa-arrow-circle-right" id="submit"></i></button>
-          </div>
-        </div>
-      </center>
-      <br>
-      <div class="form-group" style="margin: 5px;">
-        <label for="code">Paste Source:</label>
-        <textarea class="autoExpand form-control" id="code" name="code" rows="35" data-min-rows="3" autofocus></textarea>
-      </div>
-    </form>
-    <!-- JS Scripts -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/moment.min.js"></script>
-    <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
-    <script>
-// Applied globally on all textareas with the "autoExpand" class
-$(document)
-    .one('focus.autoExpand', 'textarea.autoExpand', function(){
-        var savedValue = this.value;
-        this.value = '';
-        this.baseScrollHeight = this.scrollHeight;
-        this.value = savedValue;
+  </center>
+  <br>
+  <div class="form-group" style="margin: 5px;">
+    <label for="code">Paste Source:</label>
+    <textarea class="autoExpand form-control" id="code" name="code" rows="35" data-min-rows="3" autofocus></textarea>
+  </div>
+</form>
+<!-- JS Scripts -->
+<script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+<script src="assets/js/plugins/moment.min.js"></script>
+<script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+<script>
+  // Applied globally on all textareas with the "autoExpand" class
+  $(document)
+    .one('focus.autoExpand', 'textarea.autoExpand', function () {
+      var savedValue = this.value;
+      this.value = '';
+      this.baseScrollHeight = this.scrollHeight;
+      this.value = savedValue;
     })
-    .on('input.autoExpand', 'textarea.autoExpand', function(){
-        var minRows = this.getAttribute('data-min-rows')|0, rows;
-        this.rows = minRows;
-        rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
-        this.rows = minRows + rows;
+    .on('input.autoExpand', 'textarea.autoExpand', function () {
+      var minRows = this.getAttribute('data-min-rows') | 0,
+        rows;
+      this.rows = minRows;
+      rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
+      this.rows = minRows + rows;
     });
 </script>
-  </body>
-</html>
+
+{% endblock body %}
