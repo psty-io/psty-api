@@ -60,7 +60,7 @@ Then you will need to install the Python modules required:
 
 virtualenv .flaskapp
 source .flaskapp/bin/activate # or .flaskapp/Scripts/activate.bat on Windows
-pip install flask flask-restful guesslang tensorflow==1.7.0rc1
+pip install -r requirements.txt
 ```
 
 Then you will need to choose either uwsgi or gunicorn to host the flask instance or you can just run:
