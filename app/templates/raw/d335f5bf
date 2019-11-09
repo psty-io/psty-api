@@ -1,0 +1,9 @@
+import test
+
+
+print("hi")
+
+test = "test string"
+
+def function(stringiest):
+    return None

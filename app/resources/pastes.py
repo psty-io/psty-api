@@ -1,6 +1,8 @@
-from app import app
+from app import app, mongo
 from flask import request, redirect, render_template, send_file, make_response
 from flask_restful import Resource, reqparse
+from app.resources.helpers import checkPrivate, checkPassword
+import jinja2
 
 def paste_parser():
     parser = reqparse.RequestParser()
@@ -9,7 +11,12 @@ def paste_parser():
 
 class Pastes(Resource):
     def get(self):
+        headers = {'Content-Type': 'text/html'}
         parser = paste_parser()
         data = parser.parse_args()
-        headers = {'Content-Type': 'text/html'}
-        return make_response(render_template('pastes/{}'.format(data['q'])), 200, headers)
+        q = data['q']
+        obj = mongo.db.pastes.find_one({'uid': q})
+        if obj:
+            return make_response(render_template('index.html', code=jinja2.Markup(obj['code']), raw=str(app.home_url + '/r?q=' + q), lang=str(obj['language'])), 200, headers)
+        else:
+            return make_response(render_template('404.html'), 404, headers)

@@ -2342,7 +2342,7 @@ select.form-control-lg:not([size]):not([multiple]),
 }
 
 .form-check-input:disabled~.form-check-label {
-  color: #6c757d;
+  color: #313131;
 }
 
 .form-check-label {
@@ -10978,7 +10978,7 @@ a .material-icons {
 label {
   font-size: 14px;
   line-height: 1.42857;
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
   font-weight: 400;
 }
 
@@ -12064,19 +12064,19 @@ form {
 }
 
 .form-control::-moz-placeholder {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
   font-weight: 400;
   font-size: 14px;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
   font-weight: 400;
   font-size: 14px;
 }
@@ -13433,7 +13433,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 
 .bmd-form-group:not(.has-success):not(.has-danger) [class^='bmd-label'].bmd-label-floating,
 .bmd-form-group:not(.has-success):not(.has-danger) [class*=' bmd-label'].bmd-label-floating {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
 }
 
 .bmd-form-group [class^='bmd-label'],
@@ -13489,7 +13489,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group label {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
 }
 
 .bmd-form-group .radio label,
@@ -13565,7 +13565,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-sm label {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
 }
 
 .bmd-form-group.bmd-form-group-sm .radio label,
@@ -13641,7 +13641,7 @@ fieldset[disabled][disabled] .has-rose .form-control,
 }
 
 .bmd-form-group.bmd-form-group-lg label {
-  color: #AAAAAA;
+  color: rgb(43, 43, 43);
 }
 
 .bmd-form-group.bmd-form-group-lg .radio label,
@@ -13717,7 +13717,7 @@ input::placeholder {
 }
 
 label {
-  color: #AAAAAA;
+  color: rgb(41, 41, 41);
 }
 
 .radio label,
@@ -18094,4 +18094,4 @@ footer .pull-center {
   }
 }
 
-/*# sourceMappingURL=kit-free.css.map */
+/*# sourceMappingURL=material-kit.css.map */

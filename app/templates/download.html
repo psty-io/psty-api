@@ -107,26 +107,16 @@
     </div>
     <!-- End Navigation -->
     <!-- Paste Body Start -->
-    <a href="{{raw}}" style="margin: 5px;"><i class="far fa-sticky-note"></i> View Raw Source</a>
-    <pre>
-      <code style="overflow-x: hidden;" class="{{lang}}">{{code}}</code>
-    </pre>
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/moment.min.js"></script>
-    <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-    <script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
-    <script src="assets/js/highlight.pack.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('pre code').forEach((block) => {
-    hljs.highlightBlock(block);
-    });
-    });
-    </script>
+    <fieldset>
+        <center>
+            <i class="fa fa-file" style="font-size: 100px; padding-bottom: 5px;"></i>
+            <h5 style="font-weight: bold;">{{filename}}</h5>
+            <h4 class="category">File Size: {{size}}</h4>
+            <h4 class="category">File Uploaded: {{now}}</h4>
+            <a href="{{download}}"><button class="btn btn-default">Download</button></a>
+        </center>
+    </fieldset>
+
 </body>
 
 </html>

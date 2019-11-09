@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <!-- Lets Keep This Clean Yeah? Hey there if you're reading this :P-->
+  <head>
+    <title>psty.io - Free Paste Service</title>
+    <!-- Stylesheet/JS Shit -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/bfef34323a.js"></script>
+    <script src="assets/js/plugins/autoexpand.js"></script>
+    <link href="assets/css/{{theme}}.css" rel="stylesheet" />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link href="/assets/css/material-kit.css" rel="stylesheet" />
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1138462810286043136/poWUUOQc_400x400.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Twitter Embed Card Stuffs -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@psty_io">
+    <meta name="twitter:creator" content="@MaxBridgland">
+    <meta name="twitter:title" content="Psty.io - Easily Paste and Share Code or Plaintext">
+    <meta name="twitter:description" content="psty.io is a free and open source temporary pastebin and file hosting service. Business plans available for permanent usage">
+    <meta name="twitter:image" content="https://psty.io/assets/images/thumbnail.png">
+    <!-- General SEO and Embed Shit -->
+    <meta name="Description" content="psty.io is a free and open source temporary pastebin and file hosting service. Business plans available for permanent usage">
+    <meta name="Keywords" content="paste, service, pasting, share, source code, pastebin, ghostbin, hastebin, psty, psty.io, psty paste, paste source code, source code pasting, share source code, syntax highlighter, syntax highlighting">
+  </head>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <a class="navbar-brand" href="https://psty.io">
+      <div class="logo-image">
+        <img src="https://psty.io/assets/images/nav-logo.png" height="28px" style="padding-bottom: 5px;" class="image-fluid"></a>
+      </div>
+      <center>
+      <div class="collapse navbar-collapse" id=na>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://psty.io/new"><i class="fa fa-paste"></i>Paste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://psty.io/new#fileshare"><i class="fa fa-arrow-up"></i>File Share</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/psty-io/psty-api#star-openapi-usage-star"><i class="fa fa-book"></i>Docs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/psty-io/psty-api"><i class="fa fa-star"></i>GitHub</a>
+          </li>
+        </center>
+          <span class="navbar-text" style="font-size: 12.5px; font-weight: bolder; margin-right: auto;">
+              <a class="nav-link" href="https://twitter.com/maxbridgland" style="color: white;">
+                Made with <i class="fa fa-heart" style="color: #d62626"></i> by Max and Contributors
+              </a>
+          </span>
+        </ul>
+      </div>
+  </nav>
+  <body>
+    <h1 align="center">You have been rate limited! You can only make 5 pastes per minute. Please try again in a bit!</h1>>
+    <!-- JS Scripts -->
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/moment.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+    });
+    });
+    </script>
+  </body>
+</html>

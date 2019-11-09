@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<!-- Lets Keep This Clean Yeah? Hey there if you're reading this :P-->
+
+<head>
+    <title>psty.io</title>
+    <!-- Stylesheet/JS Shit -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/bfef34323a.js"></script>
+    <script src="assets/js/plugins/autoexpand.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1138462810286043136/poWUUOQc_400x400.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Twitter Embed Card Stuffs -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@psty_io">
+    <meta name="twitter:creator" content="@MaxBridgland">
+    <meta name="twitter:title" content="Psty.io - Easily Paste and Share Code or Plaintext">
+    <meta name="twitter:description"
+        content="psty.io is a free and open source temporary pastebin and file hosting service. Business plans available for permanent usage">
+    <meta name="twitter:image" content="https://psty.io/assets/images/thumbnail.png">
+    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css" />
+    <!-- General SEO and Embed Shit -->
+    <meta name="Description"
+        content="psty.io is a free and open source temporary pastebin and file hosting service. Business plans available for permanent usage">
+    <meta name="Keywords"
+        content="paste, service, pasting, share, source code, pastebin, ghostbin, hastebin, psty, psty.io, psty paste, paste source code, source code pasting, share source code, syntax highlighter, syntax highlighting">
+    <style>
+        :root {
+            --global-font-size: 15px;
+            --global-line-height: 1.4em;
+            --global-space: 10px;
+            --font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+                serif;
+            --mono-font-stack: Menlo, Monaco, Lucida Console, Liberation Mono,
+                DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+                serif;
+            --background-color: #222225;
+            --page-width: 60em;
+            --font-color: #e8e9ed;
+            --invert-font-color: #222225;
+            --secondary-color: #a3abba;
+            --tertiary-color: #a3abba;
+            --primary-color: #62c4ff;
+            --error-color: #ff3c74;
+            --progress-bar-background: #3f3f44;
+            --progress-bar-fill: #62c4ff;
+            --code-bg-color: #3f3f44;
+            --input-style: solid;
+            --display-h1-decoration: none;
+        }
+    </style>
+    <style>
+        .components-grid {
+            display: grid;
+            grid-column-gap: 1.4em;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-rows: auto;
+            display: grid;
+            grid-gap: 1em;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(auto-fit,
+                    minmax(calc(var(--page-width) / 12), 1fr));
+        }
+
+        @media only screen and (min-width: 70em) {
+            .components-grid {
+                grid-template-columns: 3fr 9fr;
+            }
+        }
+    </style>
+</head>
+
+<body class="terminal">
+    <!-- Navigation -->
+    <div>
+        <div class="terminal-nav">
+            <header class="terminal-logo" style="padding-left: 2rem;">
+                <div class="logo terminal-prompt">
+                    <a class="no-style" href="https://psty.io">psty.io</a>
+                </div>
+            </header>
+            <nav class="terminal-menu">
+                <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                    <li>
+                        <a class="menu-item" href="https://psty.io/files">File Upload</a>
+                        <meta property="position">
+                    </li>
+                    <li>
+                        <a class="menu-item" href="https://psty.io/about" style="padding-right: 2rem;">About</a>
+                        <meta property="position">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- End Navigation -->
+    <!-- Paste Body Start -->
+    <div class="container">
+        <fieldset>
+            <legend>About:</legend>
+            <p class="subtitle">psty.io is a free, open source, temporary pastebin and file hosting service. We offer our service for no charge.</p>
+            <h3 class="title">Who's Behind This?</h4>
+            <p class="subtitle">psty.io was completely written by Max Bridgland. He's a QA Engineer with a knack for making random side projects. He has plenty of them. In fact I'm Max. I made psty because a pastebin service I had used for years shut down and archived. Well I decided I'd make my own but put a slight spin on it. From that psty.io was born. I've somewhat pivoted the application to also offer file hosting. Everything is Open Source and easily implementable on your own app if you'd like a pasting/file hosting frontend for an internal project.</p>
+            <h3 class="title">What is different about psty.io?</h4>
+            <p class="subtitle">Unlike pastebin sites that just offer pastebin services and file sharing sites that only offer filesharing, psty.io does both, and does it well. The interface is extremely simple and easy to use. Everything is right in front of you all you have to do is fill it in with your paste or file and click a button or two. Another differentiator is that psty.io offers themes for the paste that you share. There are over 89 themes and 159 languages supported for syntax highlighting!</p>
+            <h3 class="title">Limitations</h3>
+            <p class="subtitle">Due to the fact we are offering a free service we do have some rate-limits on our API in order to handle bandwidth better. This rate-limit will limit you to one upload per minute. You can unlock unlimited rate-limiting by contacting us through e-mail and discussing a business plan based on how much traffic you will be generating from your servers. You can contact us through E-Mail at <a href="mailto://support@psty.io">support@psty.io</a>.</p>
+            <p class="subtitle">Powered by <a href="https://terminalcss.xyz">terminalcss</a></p>
+        </fieldset>
+    </div>
+    <br>
+    <!-- Privacy Policy -->
+    <div class="container">
+        <fieldset>
+            <legend>Privacy Policy:</legend>
+
+
+            <p>Effective date: June 13, 2019</p>
+
+
+            <p>psty.io ("us", "we", or "our") operates the https://psty.io website (the "Service").</p>
+
+            <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when
+                you use
+                our Service and the choices you have associated with that data. Our Privacy Policy for psty.io is
+                created with the
+                help of the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator.php">Free Privacy
+                    Policy
+                    Generator</a>.</p>
+
+            <p>We use your data to provide and improve the Service. By using the Service, you agree to the collection
+                and use of
+                information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used
+                in this
+                Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://psty.io
+            </p>
+
+
+            <h2>Information Collection And Use</h2>
+
+            <p>We collect several different types of information for various purposes to provide and improve our Service
+                to you.
+            </p>
+
+            <h3>Types of Data Collected</h3>
+
+            <h4>Personal Data</h4>
+
+            <p>While using our Service, we may ask you to provide us with certain personally identifiable information
+                that can be
+                used to contact or identify you ("Personal Data"). Personally identifiable information may include, but
+                is not
+                limited to:</p>
+
+            <ul>
+                <li>Cookies and Usage Data</li>
+            </ul>
+
+            <h4>Usage Data</h4>
+
+            <p>We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data may
+                include
+                information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser
+                version, the
+                pages of our Service that you visit, the time and date of your visit, the time spent on those pages,
+                unique device
+                identifiers and other diagnostic data.</p>
+
+            <h4>Tracking & Cookies Data</h4>
+            <p>We use cookies and similar tracking technologies to track the activity on our Service and hold certain
+                information.
+            </p>
+            <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are
+                sent to
+                your browser from a website and stored on your device. Tracking technologies also used are beacons,
+                tags, and
+                scripts to collect and track information and to improve and analyze our Service.</p>
+            <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However,
+                if you do
+                not accept cookies, you may not be able to use some portions of our Service.</p>
+            <p>Examples of Cookies we use:</p>
+            <ul>
+                <li><strong>Session Cookies.</strong> We use Session Cookies to operate our Service.</li>
+                <li><strong>Preference Cookies.</strong> We use Preference Cookies to remember your preferences and
+                    various
+                    settings.</li>
+                <li><strong>Security Cookies.</strong> We use Security Cookies for security purposes.</li>
+            </ul>
+
+            <h2>Use of Data</h2>
+
+            <p>psty.io uses the collected data for various purposes:</p>
+            <ul>
+                <li>To provide and maintain the Service</li>
+                <li>To notify you about changes to our Service</li>
+                <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
+                <li>To provide customer care and support</li>
+                <li>To provide analysis or valuable information so that we can improve the Service</li>
+                <li>To monitor the usage of the Service</li>
+                <li>To detect, prevent and address technical issues</li>
+            </ul>
+
+            <h2>Transfer Of Data</h2>
+            <p>Your information, including Personal Data, may be transferred to — and maintained on — computers located
+                outside of
+                your state, province, country or other governmental jurisdiction where the data protection laws may
+                differ than
+                those from your jurisdiction.</p>
+            <p>If you are located outside United States and choose to provide information to us, please note that we
+                transfer the
+                data, including Personal Data, to United States and process it there.</p>
+            <p>Your consent to this Privacy Policy followed by your submission of such information represents your
+                agreement to
+                that transfer.</p>
+            <p>psty.io will take all steps reasonably necessary to ensure that your data is treated securely and in
+                accordance
+                with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a
+                country
+                unless there are adequate controls in place including the security of your data and other personal
+                information.</p>
+
+            <h2>Disclosure Of Data</h2>
+
+            <h3>Legal Requirements</h3>
+            <p>psty.io may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
+            <ul>
+                <li>To comply with a legal obligation</li>
+                <li>To protect and defend the rights or property of psty.io</li>
+                <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
+                <li>To protect the personal safety of users of the Service or the public</li>
+                <li>To protect against legal liability</li>
+            </ul>
+
+            <h2>Security Of Data</h2>
+            <p>The security of your data is important to us, but remember that no method of transmission over the
+                Internet, or
+                method of electronic storage is 100% secure. While we strive to use commercially acceptable means to
+                protect your
+                Personal Data, we cannot guarantee its absolute security.</p>
+
+            <h2>Service Providers</h2>
+            <p>We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to
+                provide the
+                Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service
+                is used.</p>
+            <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are
+                obligated
+                not to disclose or use it for any other purpose.</p>
+
+
+
+            <h2>Links To Other Sites</h2>
+            <p>Our Service may contain links to other sites that are not operated by us. If you click on a third party
+                link, you
+                will be directed to that third party's site. We strongly advise you to review the Privacy Policy of
+                every site you
+                visit.</p>
+            <p>We have no control over and assume no responsibility for the content, privacy policies or practices of
+                any third
+                party sites or services.</p>
+
+
+            <h2>Children's Privacy</h2>
+            <p>Our Service does not address anyone under the age of 18 ("Children").</p>
+            <p>We do not knowingly collect personally identifiable information from anyone under the age of 18. If you
+                are a
+                parent or guardian and you are aware that your Children has provided us with Personal Data, please
+                contact us. If we
+                become aware that we have collected Personal Data from children without verification of parental
+                consent, we take
+                steps to remove that information from our servers.</p>
+
+
+            <h2>Changes To This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new
+                Privacy
+                Policy on this page.</p>
+            <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming
+                effective and
+                update the "effective date" at the top of this Privacy Policy.</p>
+            <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy
+                Policy are
+                effective when they are posted on this page.</p>
+
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us:</p>
+            <ul>
+                <li>By email: max@reggora.com</li>
+
+            </ul>
+        </fieldset>
+    </div>
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/moment.min.js"></script>
+    <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+
+</html>
